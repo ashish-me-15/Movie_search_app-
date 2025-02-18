@@ -1,22 +1,11 @@
 import './App.css';
-
+import Home from "./Pages/Home"
 function App() {
+
   return (
     <>
 
-    <MyName display="Ashish" />
-    <MyName display="sharma" />
-    </>
-  );
-}
-
-function MyName({display}) {
-  return (
-    <>
-    <div>
-      <p>{display}</p>
-    </div>
-    
+    <Home />
     </>
   )
 }
