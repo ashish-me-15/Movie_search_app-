@@ -35,13 +35,13 @@ function Home() {
 const handleSearch = async(e) => {
 
     e.preventDefault();
+     
+    if(!searchQuery.trim()) return     // if user is searching for smth then it won't be the empty string , make sure there are some words
+    if (loading) return               // it won't allow us to search if we are already searching 
 
-    if(!searchQuery.trim()) return
-    if (loading) return
-
-    setLoading(true);
+    setLoading(true);                  // we are currently loading the result
     try {
-
+      
         const searchResults = await searchMovies(searchQuery)
         setMovies(searchResults);
         setError(null)
@@ -67,15 +67,23 @@ const handleSearch = async(e) => {
         <button type="submit" className="search-button">Search</button>
 
         </form>
+
+        {error && <div className="error-message">{error}</div>}
+
+
        
 
-
-
+       {loading ? (
+        <div className="loading">Loading...</div>
+       ) : (
         <div className="movies-grid">
 
             {movies.map((movie) => movie.title.toLowerCase().startsWith(searchQuery) && <MovieCard movie={movie} key={movie.id} />)}
 
         </div>
+       )}
+
+        
     </div>
 }
 
