@@ -2,22 +2,22 @@ import "../css/MovieCard.css"
 
 function MovieCard({movie}) {
 
-    function LikeButton() {
+    function likeButton() {
         alert("clicked")
     }
 
     return <div className="movie-card">
         <div className="movie-poster">
-            <img src={movie.image} alt={movie.title} />
-            <div className="movie=overlay">
-                <button className="favorite-btn" onClick={LikeButton}>
-
+            <img src={`https://m.media-amazon.com/images/M${movie.Poster}`} alt={movie.Title} />
+            <div className="movie-overlay">
+                <button className="favorite-btn" onClick={likeButton}>
+                ❤️
                 </button>
             </div>
         </div>
         <div className="movie-info">
-            <h3>{movie.title}</h3>
-            <p>{movie.release_date}</p>
+            <h3>{movie.Title}</h3>
+            <p>{movie.Released?.split("-")[0]}</p>
         </div>
     </div>
     
